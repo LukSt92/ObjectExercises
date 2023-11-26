@@ -16,27 +16,35 @@ namespace ObjectExercises
             Console.WriteLine("Press 1 for Lloyd, 2 for Lucinda, 3 to swap");
             while (true)
             {
-                string line = Console.ReadLine();
-                if (int.TryParse(line, out int result))
+                char input = Console.ReadKey(true).KeyChar;
+                Console.WriteLine("You pressed " + input);
+                if (input == '1')
                 {
-                    if (result == 1)
-                    {
-                        Console.WriteLine("You pressed " + line);
-                        lloyd.WhoAmI();
-                    }
-                    else if (result == 2)
-                    {
-                        Console.WriteLine("You pressed " + line);
-                        lucinda.WhoAmI();
-                    }
-                    else if (result == 3)
-                    {
-                        Elephant changer;
-                        changer = lloyd;
-                        lloyd = lucinda;
-                        lucinda = changer;
-                        Console.WriteLine("References have been swapped.");
-                    }
+                    Console.WriteLine("Calling lloyd.WhoAmI()");
+                    lloyd.WhoAmI();
+                }
+                else if (input == '2')
+                {
+                    Console.WriteLine("Calling lucinda.WhoAmI()");
+                    lucinda.WhoAmI();
+                }
+                else if (input == '3')
+                {
+                    Elephant changer;
+                    changer = lloyd;
+                    lloyd = lucinda;
+                    lucinda = changer;
+                    Console.WriteLine("References have been swapped.");
+                }
+                else if (input == '4')
+                {
+                    lloyd = lucinda;
+                    lloyd.EarSize = 4321;
+                    lloyd.WhoAmI();
+                }
+                else if (input == '5')
+                {
+                    lucinda.SpeakTo(lloyd, "Hi, Lloyd!");
                 }
                 else return;
                 Console.WriteLine();
